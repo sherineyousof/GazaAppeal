@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-l="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help Mohamed's Family Rebuild Their Lives in Gaza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@600;800&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1f2a24; --muted:#5d6a62; --paper:#f7f2ea; --card:#fffdf9; --line:#e6ddcf;
+  --olive:#2f5d46; --olive-2:#3f7a5c; --sand:#efe4d2; --clay:#b5562f; --wa:#1fa855;
+  --r:18px; --shadow:0 1px 2px rgba(31,42,36,.06),0 8px 24px rgba(31,42,36,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.75 "IBM Plex Sans Arabic",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+html[data-l=ar] .en, html[data-l=en] .ar{display:none!important}
+h1,h2,h3{line-height:1.3;margin:0}
+html[data-l=ar] h1,html[data-l=ar] h2{font-family:"Noto Kufi Arabic","IBM Plex Sans Arabic",sans-serif;font-weight:800}
+html[data-l=en] h1,html[data-l=en] h2{font-family:Fraunces,Georgia,serif;font-weight:800;letter-spacing:-.01em}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:10;background:rgba(247,242,234,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--clay)}
+.lang{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font:600 14px "IBM Plex Sans Arabic",sans-serif;color:var(--ink);cursor:pointer}
+
+/* hero */
+.hero{padding:36px 0 8px;text-align:center}
+.kicker{display:inline-block;font-size:13px;font-weight:600;color:var(--olive);background:#e3ecdf;border-radius:999px;padding:4px 12px;margin-bottom:14px}
+.hero h1{font-size:clamp(28px,6.4vw,42px)}
+.hero p.lead{color:var(--muted);font-size:18px;max-width:560px;margin:14px auto 0}
+.video{margin:26px auto 0;max-width:380px;border-radius:24px;overflow:hidden;box-shadow:0 20px 50px rgba(31,42,36,.22);background:#000;aspect-ratio:480/864}
+.video video{width:100%;height:100%;object-fit:cover}
+.vcap{font-size:14px;color:var(--muted);margin:12px auto 0;max-width:380px}
+.ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:24px 0 0}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:16px;border-radius:999px;padding:13px 22px;border:0;cursor:pointer;font-family:inherit}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 6px 18px rgba(31,168,85,.3)}
+.btn-ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* goal */
+.goal{margin:34px 0 0;background:var(--olive);color:#fff;border-radius:var(--r);padding:24px;display:grid;gap:6px;text-align:center}
+.goal .amt{font:800 44px/1.1 Fraunces,Georgia,serif;letter-spacing:-.02em}
+.goal p{margin:0;opacity:.9}
+
+section{padding:52px 0 0}
+.eyebrow{font-size:13px;font-weight:700;color:var(--clay);letter-spacing:.04em;margin-bottom:6px}
+html[data-l=en] .eyebrow{text-transform:uppercase}
+section h2{font-size:clamp(24px,5vw,32px);margin-bottom:16px}
+
+/* photo */
+figure{margin:0;background:var(--card);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+figure img{width:100%}
+figcaption{padding:14px 18px;font-size:15px;color:var(--muted)}
+
+/* story */
+.story p{margin:0 0 16px}
+.story p:first-of-type::first-letter{font-weight:700}
+.pull{border-inline-start:4px solid var(--clay);padding:6px 18px;margin:24px 0;font-size:20px;font-weight:600;color:var(--olive)}
+
+
+/* home gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.gallery button{all:unset;cursor:zoom-in;border-radius:14px;overflow:hidden;display:block;background:#ddd}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery .wide{grid-column:1/-1;aspect-ratio:16/7.2}
+.gallery .tall{aspect-ratio:3/4.6}
+.gcap{font-size:14px;color:var(--muted);margin:12px 0 0}
+.lb{position:fixed;inset:0;background:rgba(10,14,12,.92);display:none;place-items:center;z-index:50;padding:16px;cursor:zoom-out}
+.lb.on{display:grid}
+.lb img{max-height:92vh;max-width:100%;border-radius:10px}
+
+
+/* bank */
+.bank{margin-top:18px;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:22px}
+.bank h3{font-size:18px;margin-bottom:4px}
+.bank .sub{font-size:14px;color:var(--muted);margin:0 0 16px}
+.kv{display:grid;gap:10px}
+.kv .it{border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.kv .lbl{font-size:12px;color:var(--muted);font-weight:600}
+.kv .val{font:600 14.5px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;direction:ltr;unicode-bidi:isolate;word-break:normal;overflow-wrap:break-word;letter-spacing:-.01em}
+html[data-l=ar] .kv .val{text-align:right}
+.cp{flex:none;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:6px 12px;font:600 13px "IBM Plex Sans Arabic",sans-serif;color:var(--olive);cursor:pointer}
+.cur{display:inline-block;font-size:11px;font-weight:700;background:#e3ecdf;color:var(--olive);border-radius:6px;padding:1px 6px;margin-inline-start:6px}
+
+/* family */
+.family{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:620px){.family{grid-template-columns:repeat(3,1fr)}}
+.person{background:var(--card);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.person img{aspect-ratio:1;object-fit:cover;width:100%}
+.person .b{padding:12px 14px 14px}
+.person h3{font-size:17px}
+.age{font-size:13px;color:var(--clay);font-weight:600}
+.person p{margin:6px 0 0;font-size:14px;line-height:1.6;color:var(--muted)}
+
+/* needs */
+.needs{display:grid;gap:10px}
+.need{background:var(--card);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.need .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.need h3{font-size:16px}
+.need .v{font:700 17px Fraunces,Georgia,serif;color:var(--olive);white-space:nowrap}
+.need p{margin:4px 0 10px;font-size:14px;color:var(--muted);line-height:1.6}
+.track{height:8px;border-radius:99px;background:var(--sand);overflow:hidden}
+.fill{height:100%;background:var(--olive-2);border-radius:99px}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+
+/* help */
+.steps{display:grid;gap:10px;counter-reset:s;padding:0;margin:0;list-style:none}
+.steps li{background:var(--card);border-radius:14px;padding:14px 18px 14px;box-shadow:var(--shadow);display:flex;gap:14px;align-items:flex-start}
+.steps li::before{counter-increment:s;content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;background:var(--sand);color:var(--olive);font-weight:700;display:grid;place-items:center}
+.contact{margin-top:18px;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:22px;display:grid;gap:18px;text-align:center}
+.num{font:700 24px/1 "IBM Plex Sans Arabic",sans-serif;direction:ltr;unicode-bidi:isolate;letter-spacing:.02em}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+#qr{display:grid;place-items:center}
+#qr img,#qr canvas{border:10px solid #fff;border-radius:12px;box-shadow:var(--shadow)}
+.qrcap{font-size:13px;color:var(--muted);margin-top:-6px}
+.toast{position:fixed;inset-inline:0;bottom:22px;margin:auto;width:max-content;background:var(--ink);color:#fff;border-radius:999px;padding:10px 18px;font-size:14px;opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none}
+.toast.on{opacity:1;transform:none}
+
+footer{margin:56px 0 0;padding:36px 0 48px;background:var(--olive);color:#fff;text-align:center}
+footer h2{font-size:26px;margin-bottom:8px}
+footer p{margin:0 auto;max-width:520px;opacity:.9}
+.fixed-wa{position:fixed;bottom:18px;inset-inline-end:18px;width:56px;height:56px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.25);z-index:20}
+.fixed-wa svg{width:28px;height:28px}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2a9.93 9.93 0 0 0-8.5 15.06L2 22l5.07-1.5A9.94 9.94 0 1 0 12.04 2Zm0 18.13a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.01.89.9-2.93-.2-.31a8.19 8.19 0 1 1 6.79 3.68Zm4.5-6.13c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.17.25-.64.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.34-2.92c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.74 2.74 0 0 0-.86 2.04 4.76 4.76 0 0 0 1 2.53 10.9 10.9 0 0 0 4.18 3.69c1.55.67 2.16.73 2.94.61.47-.07 1.46-.6 1.66-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
+</svg>
+
+<header class="bar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span><span class="ar">عائلة محمد · النصيرات</span><span class="en">Mohamed's Family · Nuseirat</span></div>
+    <button class="lang" id="lang" type="button"><span class="ar">English</span><span class="en">العربية</span></button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <span class="kicker"><span class="ar">نداء من غزة</span><span class="en">An appeal from Gaza</span></span>
+    <h1><span class="ar">ساعدوا عائلة محمد على إعادة بناء حياتها في غزة</span><span class="en">Help Mohamed's Family Rebuild Their Lives in Gaza</span></h1>
+    <p class="lead"><span class="ar">عائلة من النصيرات في وسط قطاع غزة، نزحت مرات كثيرة، وفقدت مصدر رزقها، وتحاول أن تحافظ على أحلام أبنائها الأربعة.</span><span class="en">A family from Nuseirat in central Gaza, displaced again and again, without an income, trying to keep their four children's dreams alive.</span></p>
+
+    <div class="video">
+      <video src="family.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video>
+    </div>
+    <p class="vcap"><span class="ar">هكذا كانت حياتنا قبل الحرب، وهكذا أصبحت.</span><span class="en">This was our life before the war, and this is our life now.</span></p>
+
+    <div class="ctas">
+      <a class="btn btn-wa" href="https://wa.me/970599771501" target="_blank" rel="noopener"><svg><use href="#wa"/></svg><span class="ar">تواصل معنا للتبرع</span><span class="en">Message us to donate</span></a>
+      <a class="btn btn-ghost" href="#bank"><span class="ar">التبرع بتحويل بنكي</span><span class="en">Donate by bank transfer</span></a>
+      <a class="btn btn-ghost" href="#story"><span class="ar">اقرأ قصتنا</span><span class="en">Read our story</span></a>
+    </div>
+  </div>
+
+  <div class="goal">
+    <span class="ar">هدفنا</span><span class="en">Our goal</span>
+    <div class="amt">$30,000</div>
+    <p><span class="ar">لتأمين الطعام والماء، وإعادة الأبناء إلى الدراسة، ومساعدة الأب على العودة إلى العمل.</span><span class="en">To cover food and water, get the children back into education, and help their father work again.</span></p>
+  </div>
+
+  <section>
+    <div class="eyebrow"><span class="ar">عائلتنا</span><span class="en">Our family</span></div>
+    <figure>
+      <img src="family.jpg" alt="محمد مع أبنائه رأفت وعبد الحليم ورناد ونبيل" width="1100" height="1467">
+      <figcaption><span class="ar">من اليمين: الأب محمد، ورأفت، وعبد الحليم، ورناد (جالسة)، ونبيل.</span><span class="en">From right: Mohamed (father), Raafat, Abdel Halim, Renad (seated), and Nabil.</span></figcaption>
+    </figure>
+  </section>
+
+  <section id="story" class="story">
+    <div class="eyebrow"><span class="ar">قصتنا</span><span class="en">Our story</span></div>
+    <h2><span class="ar">من بيت هادئ في النصيرات إلى نزوح لا ينتهي</span><span class="en">From a quiet home in Nuseirat to endless displacement</span></h2>
+
+    <div class="ar">
+      <p>قبل الحرب، كانت حياتنا بسيطة ومستقرة في النصيرات وسط قطاع غزة. كان محمد يعمل في معرض للاتصالات ويعيل أسرته من عمله، وكانت رندا تعمل في مؤسسات خيرية تساعد فيها الآخرين، قبل أن تتفرّغ لرعاية أبنائها الأربعة. كان رأفت يدرس طب الأسنان، وكانت رناد تستعد لإنهاء الثانوية العامة، وكان عبد الحليم ونبيل يذهبان كل صباح إلى مدرستيهما. كانت لنا أحلام عادية، كأي عائلة في العالم.</p>
+      <p>ثم جاءت الحرب وقلبت كل شيء. نزحنا مرات كثيرة لم نعد نستطيع عدّها: من النصيرات إلى رفح، ثم إلى خان يونس. لجأنا إلى مدرسة، وفي كل مرة يصدر فيها أمر إخلاء جديد، كنا نحمل ما تبقى لنا ونبدأ من الصفر في مكان آخر. فقد محمد عمله، وانقطع كل دخل للعائلة.</p>
+      <p>واليوم عدنا إلى بيتنا في النصيرات، لكنه لم يعد البيت الذي نعرفه: بيت متهالك أنهكته الحرب، نعيش فيه لأنه لم يعد لنا مكان آخر.</p>
+      <p class="pull">اليوم، أصعب ما نواجهه هو أبسط ما يحتاجه الإنسان: الطعام والماء.</p>
+      <p>صار الخبز يُصنع على نار الحطب، وصار تأمين وجبة واحدة في اليوم همّاً يشغلنا من الصباح إلى المساء. ومع ذلك، فإن أكثر ما يؤلمنا هو أن نرى مستقبل أبنائنا يضيع أمام أعيننا.</p>
+      <p>رأفت كان يدرس طب الأسنان، ولم يعد قادراً على إكمال دراسته. رناد أنهت الثانوية العامة رغم كل شيء، لكن لا يوجد مع والدها ما يكفي لتبدأ الجامعة. عبد الحليم بدأ دراسته الثانوية، ويكافح ليتعلم عن بُعد بلا كهرباء ثابتة ولا إنترنت مستقر. ونبيل في الصف الخامس، ولا توجد حوله مدرسة حقيقية، فكل تعليمه عبر الإنترنت.</p>
+      <p>لا نطلب الكثير. نطلب أن نعيش بكرامة، وألا تضيع أحلام أبنائنا. كل مساهمة، مهما كانت صغيرة، تصنع فرقاً حقيقياً في حياتنا.</p>
+    </div>
+    <div class="en">
+      <p>Before the war, our life in Nuseirat, in central Gaza, was simple and steady. Mohamed worked at a mobile phone and telecom store and supported the family with his income, and Randa worked with charitable organizations, helping others, before she left to devote herself to raising their four children. Raafat was studying dentistry, Renad was preparing to finish high school, and Abdel Halim and Nabil went to school every morning. We had ordinary dreams, like any family in the world.</p>
+      <p>Then the war turned everything upside down. We have been displaced more times than we can count: from Nuseirat to Rafah, then to Khan Younis. We took shelter in a school, and every time a new evacuation order came, we packed what little we had left and started again from nothing somewhere else. Mohamed lost his job, and the family lost every source of income.</p>
+      <p>Today we are back in our home in Nuseirat, but it is no longer the home we knew: a worn-down house battered by the war, where we live because we have nowhere else to go.</p>
+      <p class="pull">Today, our hardest struggle is the most basic one: food and water.</p>
+      <p>Bread is now baked over a wood fire, and securing a single meal takes up our whole day. And yet what hurts most is watching our children's future slip away in front of us.</p>
+      <p>Raafat was studying dentistry and can no longer continue. Renad finished high school despite everything, but her father has no money for her to start university. Abdel Halim has just started high school and is struggling to learn remotely without steady electricity or internet. Nabil is in fifth grade, with no real school around him; all of his learning is online.</p>
+      <p>We are not asking for much. We are asking to live with dignity, and for our children's dreams not to be lost. Every contribution, however small, makes a real difference to our lives.</p>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="eyebrow"><span class="ar">بيتنا اليوم</span><span class="en">Our home today</span></div>
+    <h2><span class="ar">البيت الذي عدنا إليه</span><span class="en">The home we came back to</span></h2>
+    <div class="gallery">
+      <button class="wide" type="button"><img src="home1.jpg" alt="غرفة المعيشة: نوافذ محطمة وزجاج على الأرض"></button>
+      <button class="tall" type="button"><img src="home2.jpg" alt="غرفة مدمرة تطل على مبانٍ مهدمة"></button>
+      <button class="tall" type="button"><img src="home3.jpg" alt="غرفة النوم: زجاج مكسور فوق السرير والأرض"></button>
+      <button class="tall" type="button"><img src="home4.jpg" alt="باب مخلوع وغرفة مليئة بالزجاج"></button>
+    </div>
+    <p class="gcap"><span class="ar">نوافذ محطّمة، وأبواب مخلوعة، وزجاج في كل مكان، وبيوت الجيران من حولنا مهدّمة. هذا هو البيت الذي نعيش فيه اليوم.</span><span class="en">Shattered windows, broken doors, glass everywhere, and our neighbours' homes in ruins around us. This is the house we live in today.</span></p>
+  </section>
+
+  <section>
+    <div class="eyebrow"><span class="ar">تعرّفوا علينا</span><span class="en">Meet us</span></div>
+    <h2><span class="ar">أفراد العائلة</span><span class="en">The family</span></h2>
+    <div class="family">
+      <div class="person"><img src="mohammed.jpg" alt=""><div class="b">
+        <h3><span class="ar">محمد</span><span class="en">Mohamed</span></h3>
+        <div class="age"><span class="ar">الأب · 44 سنة</span><span class="en">Father · 44</span></div>
+        <p><span class="ar">كان يعمل في معرض للاتصالات، وفقد عمله ودخله بسبب الحرب.</span><span class="en">Worked at a telecom store; lost his job and income in the war.</span></p></div></div>
+      <div class="person"><img src="randa.jpg" alt=""><div class="b">
+        <h3><span class="ar">رندا سامي وشاح</span><span class="en">Randa Sami Washah</span></h3>
+        <div class="age"><span class="ar">الأم · 44 سنة</span><span class="en">Mother · 44</span></div>
+        <p><span class="ar">كانت تعمل في مؤسسات خيرية، ثم تفرّغت لرعاية أبنائها.</span><span class="en">Worked with charitable organizations, then left to care for her children.</span></p></div></div>
+      <div class="person"><img src="raafat.jpg" alt=""><div class="b">
+        <h3><span class="ar">رأفت</span><span class="en">Raafat</span></h3>
+        <div class="age"><span class="ar">20 سنة</span><span class="en">20</span></div>
+        <p><span class="ar">طالب طب أسنان، توقفت دراسته ولا يستطيع إكمالها.</span><span class="en">Dentistry student whose studies have been cut short.</span></p></div></div>
+      <div class="person"><img src="renad.jpg" alt=""><div class="b">
+        <h3><span class="ar">رناد</span><span class="en">Renad</span></h3>
+        <div class="age"><span class="ar">18 سنة</span><span class="en">18</span></div>
+        <p><span class="ar">أنهت الثانوية العامة، وتحلم بأن تبدأ دراستها الجامعية.</span><span class="en">Finished high school and dreams of starting university.</span></p></div></div>
+      <div class="person"><img src="abdelhalim.jpg" alt=""><div class="b">
+        <h3><span class="ar">عبد الحليم</span><span class="en">Abdel Halim</span></h3>
+        <div class="age"><span class="ar">17 سنة</span><span class="en">17</span></div>
+        <p><span class="ar">في المرحلة الثانوية، ويكافح مع التعليم عن بُعد.</span><span class="en">In high school, struggling with remote learning.</span></p></div></div>
+      <div class="person"><img src="nabil.jpg" alt=""><div class="b">
+        <h3><span class="ar">نبيل</span><span class="en">Nabil</span></h3>
+        <div class="age"><span class="ar">10 سنوات</span><span class="en">10</span></div>
+        <p><span class="ar">في الصف الخامس، وكل تعليمه عبر الإنترنت.</span><span class="en">In fifth grade, with all his schooling online.</span></p></div></div>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="eyebrow"><span class="ar">كيف تساعد</span><span class="en">How to help</span></div>
+    <h2><span class="ar">ثلاث طرق للمساعدة</span><span class="en">Three ways to help</span></h2>
+    <ol class="steps">
+      <li><div><strong><span class="ar">تبرّع</span><span class="en">Donate</span></strong><br><span class="ar">حوّل مباشرة إلى حساب العائلة البنكي (التفاصيل أدناه)، أو راسلنا على واتساب أو إنستغرام لنرتّب معك طريقة أخرى.</span><span class="en">Transfer directly to the family's bank account (details below), or message us on WhatsApp or Instagram to arrange another way.</span></div></li>
+      <li><div><strong><span class="ar">شارك الصفحة</span><span class="en">Share this page</span></strong><br><span class="ar">أرسلها لأصدقائك وعائلتك، فكل مشاركة قد توصلنا إلى من يستطيع المساعدة.</span><span class="en">Send it to friends and family; every share can reach someone who can help.</span></div></li>
+      <li><div><strong><span class="ar">ادعُ لنا</span><span class="en">Keep us in your prayers</span></strong><br><span class="ar">كلمة طيبة ودعاء صادق يعنيان لنا الكثير.</span><span class="en">A kind word and a sincere prayer mean a lot to us.</span></div></li>
+    </ol>
+
+    <div class="bank" id="bank">
+      <h3><span class="ar">التبرع بالتحويل البنكي</span><span class="en">Donate by bank transfer</span></h3>
+      <p class="sub"><span class="ar">يمكنك التحويل مباشرة إلى حساب الأب في بنك فلسطين من أي بنك في العالم.</span><span class="en">You can transfer directly to Mohamed's account at Bank of Palestine from any bank worldwide.</span></p>
+      <div class="kv">
+        <div class="it"><div><div class="lbl"><span class="ar">اسم صاحب الحساب</span><span class="en">Account holder</span></div><div class="val">MOHAMED NABIL KHALIL WESHAH</div></div><button class="cp" type="button" data-copy="MOHAMED NABIL KHALIL WESHAH"><span class="ar">نسخ</span><span class="en">Copy</span></button></div>
+        <div class="it"><div><div class="lbl"><span class="ar">البنك</span><span class="en">Bank</span></div><div class="val">Bank of Palestine</div></div><button class="cp" type="button" data-copy="Bank of Palestine"><span class="ar">نسخ</span><span class="en">Copy</span></button></div>
+        <div class="it"><div><div class="lbl"><span class="ar">رمز SWIFT</span><span class="en">SWIFT / BIC</span></div><div class="val">PALSPS22</div></div><button class="cp" type="button" data-copy="PALSPS22"><span class="ar">نسخ</span><span class="en">Copy</span></button></div>
+        <div class="it"><div><div class="lbl"><span class="ar">IBAN بالدولار</span><span class="en">IBAN (US dollars)</span><span class="cur">USD</span></div><div class="val">PS61 PALS 0448 1332 9570 0131 0000 0</div></div><button class="cp" type="button" data-copy="PS61PALS044813329570013100000"><span class="ar">نسخ</span><span class="en">Copy</span></button></div>
+        <div class="it"><div><div class="lbl"><span class="ar">IBAN باليورو</span><span class="en">IBAN (euros)</span><span class="cur">EUR</span></div><div class="val">PS66 PALS 0448 1332 9570 3331 0000 0</div></div><button class="cp" type="button" data-copy="PS66PALS044813329570333100000"><span class="ar">نسخ</span><span class="en">Copy</span></button></div>
+      </div>
+      <p class="note"><span class="ar">بعد التحويل، يسعدنا أن تراسلنا على واتساب لنشكرك ونؤكد وصول تبرعك.</span><span class="en">After transferring, please message us on WhatsApp so we can thank you and confirm it arrived.</span></p>
+    </div>
+
+    <div class="contact">
+      <div>
+        <div style="font-size:14px;color:var(--muted)"><span class="ar">رقم الواتساب</span><span class="en">WhatsApp number</span></div>
+        <div class="num">+970 59 977 1501</div>
+      </div>
+      <div class="row">
+        <a class="btn btn-wa" href="https://wa.me/970599771501" target="_blank" rel="noopener"><svg><use href="#wa"/></svg><span class="ar">افتح واتساب</span><span class="en">Open WhatsApp</span></a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/randa____sami" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><span class="ar">إنستغرام</span><span class="en">Instagram</span></a>
+        <button class="btn btn-ghost" type="button" id="copy"><span class="ar">نسخ الرقم</span><span class="en">Copy number</span></button>
+      </div>
+      <div id="qr"></div>
+      <div class="qrcap"><span class="ar">امسح الرمز بكاميرا هاتفك لفتح محادثة واتساب</span><span class="en">Scan with your phone camera to open a WhatsApp chat</span></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2><span class="ar">شكراً لكم من القلب</span><span class="en">Thank you, from our hearts</span></h2>
+    <p><span class="ar">شكراً لكل من قرأ قصتنا، وتبرّع، وشارك. أنتم تمنحوننا الأمل.</span><span class="en">Thank you to everyone who read our story, gave, and shared. You give us hope.</span></p>
+    <p style="margin-top:14px;opacity:.75;font-size:14px"><span class="ar">محمد ورندا ورأفت ورناد وعبد الحليم ونبيل</span><span class="en">Mohamed, Randa, Raafat, Renad, Abdel Halim and Nabil</span></p>
+  </div>
+</footer>
+
+<a class="fixed-wa" href="https://wa.me/970599771501" target="_blank" rel="noopener" aria-label="WhatsApp" style="color:#fff"><svg><use href="#wa"/></svg></a>
+<div class="toast" id="toast"></div>
+<div class="lb" id="lb"><img alt=""></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+
+const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+document.querySelectorAll('.gallery button').forEach(b=>b.onclick=()=>{const i=b.querySelector('img');lbi.src=i.src;lbi.alt=i.alt;lb.classList.add('on')});
+lb.onclick=()=>lb.classList.remove('on');
+const root=document.documentElement;
+function setLang(l){root.dataset.l=l;root.lang=l;root.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('lang',l)}catch(e){}}
+let saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+setLang(saved||((navigator.language||'').toLowerCase().startsWith('ar')?'ar':'en'));
+document.getElementById('lang').onclick=()=>setLang(root.dataset.l==='ar'?'en':'ar');
+
+const toast=document.getElementById('toast');
+function show(t){toast.textContent=t;toast.classList.add('on');setTimeout(()=>toast.classList.remove('on'),1800)}
+document.querySelectorAll('[data-copy]').forEach(b=>b.onclick=async()=>{
+  const ar=root.dataset.l==='ar';
+  try{await navigator.clipboard.writeText(b.dataset.copy);show(ar?'تم النسخ':'Copied')}catch(e){show(b.dataset.copy)}
+});
+document.getElementById('copy').onclick=async()=>{
+  const ar=root.dataset.l==='ar';
+  try{await navigator.clipboard.writeText('+970599771501');show(ar?'تم نسخ الرقم':'Number copied')}
+  catch(e){show('+970 59 977 1501')}
+};
+try{new QRCode(document.getElementById('qr'),{text:'https://wa.me/970599771501',width:160,height:160,colorDark:'#1f2a24',colorLight:'#ffffff'})}catch(e){}
+</script>
+</body>
+</html>
